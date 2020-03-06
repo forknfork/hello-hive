@@ -1,0 +1,5 @@
+#!/bin/bash -x
+
+/usr/sbin/sshd
+start-dfs.sh
+hiveserver2

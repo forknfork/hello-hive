@@ -21,4 +21,6 @@ RUN wget -q -O - http://ftp.tsukuba.wide.ad.jp/software/apache/hive/hive-2.3.6/a
 ENV HIVE_HOME=/apache-hive-2.3.6-bin PATH=/apache-hive-2.3.6-bin/bin:$PATH
 RUN schematool -dbType derby -initSchema
 
-CMD ["/usr/sbin/sshd"]
+WORKDIR /root
+COPY start /root/
+CMD ["./start"]
