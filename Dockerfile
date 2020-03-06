@@ -14,6 +14,7 @@ RUN mkdir /run/sshd \
 RUN wget -q -O - http://ftp.tsukuba.wide.ad.jp/software/apache/hadoop/common/hadoop-2.9.2/hadoop-2.9.2.tar.gz | tar zxf -
 ENV PATH=/hadoop-2.9.2/bin:/hadoop-2.9.2/sbin:$PATH
 COPY config/hadoop /hadoop-2.9.2/etc/hadoop/
+RUN hdfs namenode -format
 
 # Hive
 RUN wget -q -O - http://ftp.tsukuba.wide.ad.jp/software/apache/hive/hive-2.3.6/apache-hive-2.3.6-bin.tar.gz | tar zxf -
