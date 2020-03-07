@@ -1,5 +1,13 @@
-#!/bin/bash -x
+#!/bin/bash -ex
 
 /usr/sbin/sshd
 start-dfs.sh
+
+hdfs dfs -mkdir -p /tmp
+hdfs dfs -mkdir -p /user/hive/warehouse
+hdfs dfs -chmod g+w /tmp
+hdfs dfs -chmod g+w /user/hive/warehouse
+
+schematool -dbType derby -initSchema
+
 hiveserver2
