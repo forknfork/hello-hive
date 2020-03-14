@@ -19,6 +19,7 @@ RUN hdfs namenode -format
 # Hive
 RUN wget -q -O - http://ftp.tsukuba.wide.ad.jp/software/apache/hive/hive-2.3.6/apache-hive-2.3.6-bin.tar.gz | tar zxf -
 ENV HIVE_HOME=/apache-hive-2.3.6-bin PATH=/apache-hive-2.3.6-bin/bin:$PATH
+COPY config/hive /apache-hive-2.3.6-bin/conf/
 
 WORKDIR /root
 COPY start /root/
